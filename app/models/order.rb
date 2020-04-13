@@ -19,6 +19,3 @@ class Order  < Dry::Struct
     hash
   end
 end
-
-# o = Order.new id: 1, product: 'Macbook', amount: 6988.00, seller: 'Apple Store', buyer: 'Rivelino Junior'
-# o = Order.new product: 'Macbook', amount: 6988.00
