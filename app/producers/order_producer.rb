@@ -9,20 +9,13 @@ class OrderProducer
   end
 
   def run
-    producer.produce(event_wrap, topic: topic)
+    producer.produce(order.to_json, topic: topic, key: "order_#{order.id}", partition_key: "order_#{order.id}")
     producer.deliver_messages
   end
 
   private
 
   attr_accessor :order, :topic
-
-  def event_wrap
-    {
-      event_name: "#{order.class}: #{order.id}",
-      payload: order.to_json
-    }.to_json
-  end
 
   def producer
     @producer ||= Example.kafka.producer

@@ -8,3 +8,6 @@ require 'json'
 
 # Producers
 %w[order].each { |producer| require "./app/producers/#{producer}_producer.rb" }
+
+# Consumers
+%w[order].each { |consumer| require "./app/consumers/#{consumer}_consumer.rb" }
